@@ -1,0 +1,2485 @@
+:root {
+    --sky: #38bdf8;
+    --sky-dark: #0284c7;
+    --sky-soft: #e0f6ff;
+    --sky-pale: #f2fbff;
+
+    --blue: #075985;
+    --blue-soft: #eaf7ff;
+
+    --text: #17324d;
+    --text-dark: #102a43;
+    --muted: #71869a;
+    --muted-2: #8ca1b1;
+
+    --white: #ffffff;
+    --background: #f3faff;
+
+    --border: #dcecf5;
+    --shadow: rgba(35, 107, 145, 0.10);
+
+    --hotel: #0891b2;
+    --hotel-bg: #e6faff;
+
+    --obra: #e99a12;
+    --obra-bg: #fff6df;
+
+    --danger: #e05260;
+    --danger-bg: #fff0f2;
+
+    --radius-xl: 28px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+}
+
+
+/* ======================================================
+   RESET
+====================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(56, 189, 248, 0.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 0% 35%,
+            rgba(56, 189, 248, 0.07),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #f9fdff 0%,
+            #eff9fe 50%,
+            #f7fcff 100%
+        );
+
+    padding: 18px;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+button,
+select {
+    font-family: inherit;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+button {
+    outline: none;
+}
+
+
+/* ======================================================
+   APP
+====================================================== */
+
+.app {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding-bottom: 55px;
+}
+
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.app-header {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    margin-bottom: 23px;
+
+    padding:
+        10px 4px 0;
+}
+
+
+.app-header::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 38px;
+    height: 3px;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+}
+
+
+.eyebrow {
+    display: block;
+
+    color: var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+}
+
+
+.app-header h1 {
+    color: var(--blue);
+
+    font-size: 40px;
+
+    line-height: 0.95;
+
+    letter-spacing: -2px;
+
+    font-weight: 900;
+}
+
+
+.app-header p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 10px;
+
+    line-height: 1.4;
+}
+
+
+.today-btn {
+    position: relative;
+
+    min-width: 66px;
+    min-height: 42px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid #c9eaf8;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    color: var(--sky-dark);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 22px
+        rgba(35, 107, 145, 0.09);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.today-btn:hover {
+    background:
+        var(--sky-pale);
+
+    box-shadow:
+        0 12px 27px
+        rgba(35, 107, 145, 0.13);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.today-btn:active {
+    transform:
+        scale(0.95);
+}
+
+
+/* ======================================================
+   SELECTOR DE TRABAJO
+====================================================== */
+
+.work-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 6px;
+
+    padding: 5px;
+
+    margin-bottom: 21px;
+
+    border:
+        1px solid rgba(207, 231, 243, 0.9);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.86);
+
+    box-shadow:
+        0 12px 30px
+        rgba(35, 107, 145, 0.08);
+}
+
+
+.work-btn {
+    min-height: 45px;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 13px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        all 0.22s ease;
+}
+
+
+.work-btn span {
+    margin-right: 5px;
+
+    font-size: 14px;
+}
+
+
+.work-btn.active {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+
+    box-shadow:
+        0 8px 18px
+        rgba(2, 132, 199, 0.22);
+}
+
+
+.work-btn:not(.active):hover {
+    color: var(--sky-dark);
+
+    background:
+        var(--sky-pale);
+}
+
+
+.work-btn:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* ======================================================
+   RESUMEN
+====================================================== */
+
+.stats-section {
+    margin-bottom: 21px;
+}
+
+
+.stats-header {
+    margin-bottom: 12px;
+
+    padding:
+        0 3px;
+}
+
+
+.stats-header span {
+    display: block;
+
+    color: var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 2.3px;
+
+    margin-bottom: 5px;
+}
+
+
+.stats-header h2 {
+    color: var(--text-dark);
+
+    font-size: 18px;
+
+    letter-spacing: -0.55px;
+
+    font-weight: 850;
+}
+
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+
+.stat-card {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 104px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 13px 30px
+        var(--shadow);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.stat-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -35px;
+    bottom: -45px;
+
+    width: 95px;
+    height: 95px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(56, 189, 248, 0.035);
+
+    pointer-events: none;
+}
+
+
+.stat-card:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 17px 36px
+        rgba(35, 107, 145, 0.13);
+}
+
+
+.stat-icon {
+    position: relative;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+}
+
+
+.stat-card strong {
+    position: relative;
+
+    display: block;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+
+.stat-card div span {
+    position: relative;
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    font-weight: 750;
+
+    margin-top: 5px;
+
+    line-height: 1.2;
+}
+
+
+/* TOTAL */
+
+.total-stat {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f0faff 100%
+        );
+
+    border-color:
+        #c8eafa;
+}
+
+
+.total-stat .stat-icon {
+    background:
+        var(--sky-soft);
+
+    border:
+        1px solid #c8eafa;
+}
+
+
+.total-stat strong {
+    color:
+        var(--sky-dark);
+}
+
+
+/* HOTEL */
+
+.hotel-stat {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f4fdff 100%
+        );
+
+    border-color:
+        #c8edf3;
+}
+
+
+.hotel-stat .stat-icon {
+    background:
+        var(--hotel-bg);
+
+    border:
+        1px solid #c0eaf1;
+}
+
+
+.hotel-stat strong {
+    color:
+        var(--hotel);
+}
+
+
+/* OBRA */
+
+.obra-stat {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fffaf0 100%
+        );
+
+    border-color:
+        #f3e1b3;
+}
+
+
+.obra-stat .stat-icon {
+    background:
+        var(--obra-bg);
+
+    border:
+        1px solid #f2dca4;
+}
+
+
+.obra-stat strong {
+    color:
+        var(--obra);
+}
+
+
+/* HORAS */
+
+.hours-stat {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f1faff 100%
+        );
+
+    border-color:
+        #c9e7f5;
+}
+
+
+.hours-stat .stat-icon {
+    background:
+        #e8f7ff;
+
+    border:
+        1px solid #c9eafa;
+}
+
+
+.hours-stat strong {
+    color:
+        var(--sky-dark);
+}
+
+
+/* ======================================================
+   QUINCENA
+====================================================== */
+
+.quincena-section {
+    margin-bottom: 21px;
+}
+
+
+.quincena-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 11px;
+
+    padding:
+        0 3px;
+}
+
+
+.quincena-header > div {
+    min-width: 0;
+}
+
+
+.quincena-header span {
+    display: block;
+
+    color: var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+
+.quincena-header h2 {
+    color: var(--text-dark);
+
+    font-size: 18px;
+
+    font-weight: 850;
+
+    letter-spacing: -0.45px;
+}
+
+
+.programar-btn {
+    flex-shrink: 0;
+
+    min-height: 42px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid #b8e5f8;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+
+    color: #ffffff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 19px
+        rgba(2, 132, 199, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.programar-btn:hover {
+    box-shadow:
+        0 11px 24px
+        rgba(2, 132, 199, 0.23);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.programar-btn:active {
+    transform:
+        scale(0.96);
+}
+
+
+.quincena-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 6px;
+
+    padding: 5px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 19px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    box-shadow:
+        0 12px 28px
+        var(--shadow);
+}
+
+
+.quincena-btn {
+    min-height: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 14px;
+
+    background:
+        transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    transition:
+        all 0.22s ease;
+}
+
+
+.quincena-btn strong {
+    color: inherit;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: -0.2px;
+}
+
+
+.quincena-btn small {
+    color: inherit;
+
+    font-size: 8px;
+
+    font-weight: 750;
+}
+
+
+.quincena-btn.active {
+    color:
+        var(--sky-dark);
+
+    background:
+        linear-gradient(
+            145deg,
+            #eafbff,
+            #f4fcff
+        );
+
+    border-color:
+        #bfe6f7;
+
+    box-shadow:
+        0 6px 15px
+        rgba(56, 189, 248, 0.10);
+}
+
+
+.quincena-btn:not(.active):hover {
+    color:
+        var(--sky-dark);
+
+    background:
+        var(--sky-pale);
+}
+
+
+.quincena-btn:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* ======================================================
+   HOY
+====================================================== */
+
+.today-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 21px;
+
+    border:
+        1px solid #c4e9f9;
+
+    border-radius: var(--radius-xl);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #eefaff 100%
+        );
+
+    box-shadow:
+        0 16px 37px
+        var(--shadow);
+}
+
+
+.today-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+}
+
+
+.today-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    right: -75px;
+    top: -75px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(56, 189, 248, 0.09);
+}
+
+
+.today-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 51px;
+    height: 51px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e1f8ff,
+            #c9f0fc
+        );
+
+    border:
+        1px solid #b8e5f7;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(56, 189, 248, 0.13);
+}
+
+
+.today-info {
+    position: relative;
+    z-index: 2;
+
+    min-width: 0;
+}
+
+
+.today-info span {
+    color:
+        var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 2.2px;
+}
+
+
+.today-info h2 {
+    color:
+        var(--text-dark);
+
+    font-size: 16px;
+
+    line-height: 1.25;
+
+    margin-top: 5px;
+
+    text-transform: capitalize;
+
+    letter-spacing: -0.3px;
+
+    font-weight: 850;
+}
+
+
+.today-info p {
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 6px;
+
+    line-height: 1.45;
+}
+
+
+/* ======================================================
+   CALENDARIO
+====================================================== */
+
+.calendar-card {
+    padding: 18px;
+
+    margin-bottom: 29px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius-xl);
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+        0 18px 43px
+        var(--shadow);
+}
+
+
+.calendar-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 17px;
+}
+
+
+.month-title {
+    flex: 1;
+
+    text-align: center;
+}
+
+
+.month-title h2 {
+    color:
+        var(--text-dark);
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    text-transform: capitalize;
+
+    letter-spacing: -0.6px;
+}
+
+
+.month-btn {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #d3eaf4;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fdff,
+            #edf9fe
+        );
+
+    color:
+        var(--sky-dark);
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.month-btn:hover {
+    background:
+        var(--sky-soft);
+
+    border-color:
+        #b8e5f7;
+
+    box-shadow:
+        0 6px 15px
+        rgba(56, 189, 248, 0.10);
+}
+
+
+.month-btn:active {
+    transform:
+        scale(0.91);
+}
+
+
+/* ======================================================
+   DÍAS DE LA SEMANA
+====================================================== */
+
+.weekdays {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    margin-bottom: 7px;
+}
+
+
+.weekdays span {
+    text-align: center;
+
+    color:
+        var(--muted-2);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 0.8px;
+
+    padding-bottom: 6px;
+}
+
+
+/* ======================================================
+   GRID CALENDARIO
+====================================================== */
+
+.calendar {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+}
+
+
+.day {
+    position: relative;
+
+    min-height: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    padding-top: 7px;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fcfeff,
+            #f8fcfe
+        );
+
+    color:
+        var(--text);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.day:not(.empty):hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--sky-pale);
+
+    border-color:
+        #c7eafa;
+
+    box-shadow:
+        0 7px 15px
+        rgba(56, 189, 248, 0.10);
+}
+
+
+.day:not(.empty):active {
+    transform:
+        scale(0.94);
+}
+
+
+.day.empty {
+    pointer-events: none;
+
+    background:
+        transparent;
+}
+
+
+.day-number {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--text);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    z-index: 2;
+}
+
+
+/* ======================================================
+   HOY
+====================================================== */
+
+.day.today {
+    background:
+        linear-gradient(
+            145deg,
+            #effaff,
+            #e8f8ff
+        );
+
+    border-color:
+        #a9def3;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(56, 189, 248, 0.04);
+}
+
+
+.day.today .day-number {
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+
+    box-shadow:
+        0 5px 14px
+        rgba(2, 132, 199, 0.25);
+}
+
+
+/* ======================================================
+   ICONOS DE TURNO
+====================================================== */
+
+.shift-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3px;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    animation:
+        shiftAppear 0.25s ease;
+}
+
+
+.shift-label {
+    margin-top: 3px;
+
+    font-size: 7px;
+
+    font-weight: 950;
+
+    line-height: 1;
+
+    letter-spacing: 0.2px;
+}
+
+
+@keyframes shiftAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.65)
+            translateY(3px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+/* ======================================================
+   OBRA
+====================================================== */
+
+.day.obra {
+    background:
+        linear-gradient(
+            180deg,
+            #fffaf0,
+            #ffffff
+        );
+
+    border-color:
+        #f4dfad;
+}
+
+
+.day.obra .shift-icon {
+    background:
+        var(--obra-bg);
+
+    border:
+        1px solid #f0d48d;
+
+    box-shadow:
+        0 4px 10px
+        rgba(233, 154, 18, 0.08);
+}
+
+
+.day.obra .shift-label {
+    color:
+        var(--obra);
+}
+
+
+/* ======================================================
+   HOTEL
+====================================================== */
+
+.day.hotel {
+    background:
+        linear-gradient(
+            180deg,
+            #effcff,
+            #ffffff
+        );
+
+    border-color:
+        #bfeaf1;
+}
+
+
+.day.hotel .shift-icon {
+    background:
+        var(--hotel-bg);
+
+    border:
+        1px solid #b5e6ee;
+
+    box-shadow:
+        0 4px 10px
+        rgba(8, 145, 178, 0.08);
+}
+
+
+.day.hotel .shift-label {
+    color:
+        var(--hotel);
+}
+
+
+/* ======================================================
+   PRÓXIMO TURNO
+====================================================== */
+
+.section-title {
+    margin-bottom: 12px;
+
+    padding:
+        0 3px;
+}
+
+
+.section-title span {
+    display: block;
+
+    color:
+        var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 2.2px;
+}
+
+
+.section-title h2 {
+    color:
+        var(--text-dark);
+
+    font-size: 18px;
+
+    margin-top: 5px;
+
+    font-weight: 850;
+
+    letter-spacing: -0.45px;
+}
+
+
+.next-shift-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fcff
+        );
+
+    box-shadow:
+        0 14px 33px
+        var(--shadow);
+}
+
+
+.next-shift-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    right: -45px;
+    bottom: -45px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(56, 189, 248, 0.06);
+}
+
+
+.next-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        var(--sky-soft);
+
+    border:
+        1px solid #c0e8f7;
+
+    font-size: 20px;
+}
+
+
+.next-shift-card > div:last-child {
+    position: relative;
+    z-index: 2;
+
+    min-width: 0;
+}
+
+
+.next-shift-card strong {
+    color:
+        var(--text-dark);
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+
+.next-shift-card p {
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+    line-height: 1.5;
+}
+
+
+/* ======================================================
+   MODAL
+====================================================== */
+
+.turno-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+}
+
+
+.turno-modal-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 14px;
+
+    background:
+        rgba(14, 44, 62, 0.38);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.turno-modal-card {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 440px;
+
+    padding: 25px;
+
+    border:
+        1px solid #c9eaf7;
+
+    border-radius:
+        28px 28px 21px 21px;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+        0 -14px 60px
+        rgba(26, 91, 122, 0.21);
+
+    animation:
+        modalUp 0.25s ease;
+}
+
+
+@keyframes modalUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+.modal-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 36px;
+    height: 36px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        #f5fbfe;
+
+    color:
+        var(--muted);
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.modal-close:hover {
+    color:
+        var(--sky-dark);
+
+    background:
+        var(--sky-soft);
+}
+
+
+.modal-eyebrow {
+    color:
+        var(--sky-dark);
+
+    font-size: 8px;
+
+    font-weight: 950;
+
+    letter-spacing: 2px;
+}
+
+
+.turno-modal-card h2 {
+    color:
+        var(--text-dark);
+
+    margin-top: 7px;
+
+    padding-right: 40px;
+
+    font-size: 20px;
+
+    line-height: 1.3;
+
+    text-transform: capitalize;
+
+    letter-spacing: -0.45px;
+
+    font-weight: 900;
+}
+
+
+.modal-question {
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 7px;
+
+    margin-bottom: 16px;
+}
+
+
+.modal-option {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 9px;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 17px;
+
+    background:
+        #fbfdff;
+
+    color:
+        var(--text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.modal-option:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        var(--sky-pale);
+
+    border-color:
+        #c7eaf8;
+
+    box-shadow:
+        0 7px 17px
+        rgba(35, 107, 145, 0.07);
+}
+
+
+.modal-option:active {
+    transform:
+        scale(0.98);
+}
+
+
+.modal-option-icon {
+    width: 47px;
+    height: 47px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 21px;
+}
+
+
+.hotel-option .modal-option-icon {
+    background:
+        var(--hotel-bg);
+
+    border:
+        1px solid #bceaf1;
+}
+
+
+.obra-option .modal-option-icon {
+    background:
+        var(--obra-bg);
+
+    border:
+        1px solid #f2d991;
+}
+
+
+.modal-option strong {
+    display: block;
+
+    color:
+        var(--text-dark);
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+
+.modal-option small {
+    display: block;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    margin-top: 4px;
+}
+
+
+.modal-delete {
+    width: 100%;
+
+    margin-top: 16px;
+
+    padding: 13px;
+
+    border:
+        1px solid #ffd0d6;
+
+    border-radius: 14px;
+
+    background:
+        var(--danger-bg);
+
+    color:
+        var(--danger);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+.modal-delete:hover {
+    background:
+        #ffe5e9;
+}
+
+
+.modal-delete:active {
+    transform:
+        scale(0.98);
+}
+
+
+/* ======================================================
+   MODAL QUINCENA
+====================================================== */
+
+.quincena-modal-card {
+    max-height: 88vh;
+
+    overflow-y: auto;
+}
+
+
+.quincena-days {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 50vh;
+
+    overflow-y: auto;
+
+    padding-right: 2px;
+
+    margin-top: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.quincena-day {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    min-height: 51px;
+
+    padding:
+        7px 9px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    background:
+        #fafdff;
+}
+
+
+.quincena-date {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-width: 70px;
+}
+
+
+.quincena-date strong {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        var(--sky-soft);
+
+    color:
+        var(--sky-dark);
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+
+.quincena-date small {
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    text-transform: capitalize;
+}
+
+
+.quincena-work {
+    min-width: 135px;
+
+    min-height: 38px;
+
+    padding:
+        0 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--text);
+
+    font-size: 10px;
+
+    font-weight: 750;
+
+    outline: none;
+}
+
+
+.quincena-work:focus {
+    border-color:
+        var(--sky);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(56, 189, 248, 0.09);
+}
+
+
+.save-quincena-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    border:
+        1px solid #b8e5f8;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sky),
+            var(--sky-dark)
+        );
+
+    color:
+        #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 21px
+        rgba(2, 132, 199, 0.20);
+}
+
+
+.save-quincena-btn:active {
+    transform:
+        scale(0.98);
+}
+
+
+/* ======================================================
+   PANTALLAS GRANDES
+====================================================== */
+
+@media (min-width: 650px) {
+
+    body {
+        padding:
+            38px 20px;
+    }
+
+
+    .app-header h1 {
+        font-size: 43px;
+    }
+
+
+    .day {
+        min-height: 78px;
+
+        padding-top: 9px;
+    }
+
+
+    .turno-modal-overlay {
+        align-items: center;
+    }
+
+
+    .turno-modal-card {
+        border-radius:
+            27px;
+    }
+
+}
+
+
+/* ======================================================
+   CELULAR
+====================================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 13px;
+    }
+
+
+    .app-header {
+        margin-bottom: 20px;
+    }
+
+
+    .app-header h1 {
+        font-size: 32px;
+    }
+
+
+    .app-header p {
+        font-size: 10px;
+    }
+
+
+    .today-btn {
+        min-width: 59px;
+
+        min-height: 39px;
+
+        padding:
+            0 11px;
+
+        font-size: 9px;
+    }
+
+
+    .work-btn {
+        min-height: 42px;
+
+        font-size: 9px;
+    }
+
+
+    .stats-grid {
+        gap: 6px;
+    }
+
+
+    .stat-card {
+        min-height: 94px;
+
+        padding: 12px;
+
+        border-radius: 17px;
+    }
+
+
+    .stat-icon {
+        width: 28px;
+        height: 28px;
+
+        font-size: 13px;
+    }
+
+
+    .stat-card strong {
+        font-size: 21px;
+    }
+
+
+    .stat-card div span {
+        font-size: 7px;
+    }
+
+
+    .quincena-header {
+        align-items: flex-end;
+    }
+
+
+    .quincena-header h2 {
+        font-size: 16px;
+    }
+
+
+    .programar-btn {
+        min-height: 39px;
+
+        padding:
+            0 11px;
+
+        font-size: 9px;
+    }
+
+
+    .quincena-btn {
+        min-height: 54px;
+    }
+
+
+    .quincena-btn strong {
+        font-size: 12px;
+    }
+
+
+    .quincena-btn small {
+        font-size: 7px;
+    }
+
+
+    .today-card {
+        padding: 16px;
+
+        border-radius: 22px;
+    }
+
+
+    .today-icon {
+        width: 46px;
+        height: 46px;
+
+        font-size: 19px;
+    }
+
+
+    .today-info h2 {
+        font-size: 14px;
+    }
+
+
+    .today-info p {
+        font-size: 9px;
+    }
+
+
+    .calendar-card {
+        padding: 13px;
+
+        border-radius: 23px;
+    }
+
+
+    .month-title h2 {
+        font-size: 17px;
+    }
+
+
+    .month-btn {
+        width: 37px;
+        height: 37px;
+    }
+
+
+    .calendar {
+        gap: 4px;
+    }
+
+
+    .day {
+        min-height: 62px;
+
+        border-radius: 12px;
+
+        padding-top: 6px;
+    }
+
+
+    .day-number {
+        width: 27px;
+        height: 27px;
+
+        font-size: 11px;
+    }
+
+
+    .shift-icon {
+        width: 24px;
+        height: 24px;
+
+        font-size: 13px;
+    }
+
+
+    .shift-label {
+        font-size: 6px;
+    }
+
+
+    .next-shift-card {
+        padding: 16px;
+    }
+
+
+    .next-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 18px;
+    }
+
+
+    .next-shift-card strong {
+        font-size: 13px;
+    }
+
+
+    .next-shift-card p {
+        font-size: 9px;
+    }
+
+
+    .turno-modal-card {
+        padding: 21px;
+
+        border-radius:
+            24px 24px 0 0;
+    }
+
+
+    .quincena-work {
+        min-width: 125px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* ======================================================
+   CELULAR PEQUEÑO
+====================================================== */
+
+@media (max-width: 360px) {
+
+    body {
+        padding: 9px;
+    }
+
+
+    .app-header h1 {
+        font-size: 29px;
+    }
+
+
+    .app-header p {
+        font-size: 9px;
+    }
+
+
+    .today-btn {
+        min-width: 55px;
+
+        min-height: 37px;
+
+        padding:
+            0 9px;
+    }
+
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 5px;
+    }
+
+
+    .stat-card {
+        min-height: 83px;
+
+        padding: 9px;
+
+        border-radius: 15px;
+    }
+
+
+    .stat-card strong {
+        font-size: 19px;
+    }
+
+
+    .stat-card div span {
+        font-size: 6.5px;
+    }
+
+
+    .quincena-header h2 {
+        font-size: 15px;
+    }
+
+
+    .programar-btn {
+        padding:
+            0 9px;
+
+        font-size: 8px;
+    }
+
+
+    .quincena-btn {
+        min-height: 50px;
+    }
+
+
+    .quincena-btn strong {
+        font-size: 11px;
+    }
+
+
+    .quincena-btn small {
+        font-size: 6.5px;
+    }
+
+
+    .calendar-card {
+        padding: 10px;
+    }
+
+
+    .calendar {
+        gap: 3px;
+    }
+
+
+    .day {
+        min-height: 55px;
+
+        border-radius: 10px;
+
+        padding-top: 5px;
+    }
+
+
+    .day-number {
+        width: 25px;
+        height: 25px;
+
+        font-size: 10px;
+    }
+
+
+    .shift-icon {
+        width: 22px;
+        height: 22px;
+
+        font-size: 12px;
+    }
+
+
+    .shift-label {
+        font-size: 5.5px;
+    }
+
+
+    .weekdays span {
+        font-size: 7px;
+    }
+
+
+    .month-title h2 {
+        font-size: 15px;
+    }
+
+
+    .month-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .quincena-day {
+        min-height: 48px;
+    }
+
+
+    .quincena-work {
+        min-width: 115px;
+
+        padding:
+            0 6px;
+
+        font-size: 8px;
+    }
+
+
+    .quincena-date {
+        gap: 5px;
+    }
+
+}

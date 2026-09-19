@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#38bdf8"
+    >
+
+    <title>Mi Turno</title>
+
+
+    <!-- PWA -->
+
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="app">
+
+
+        <!-- ==================================================
+             ENCABEZADO
+        ================================================== -->
+
+        <header class="app-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    MI AGENDA
+                </span>
+
+                <h1>
+                    Mi Turno
+                </h1>
+
+                <p>
+                    Organiza tus jornadas de trabajo
+                </p>
+
+            </div>
+
+
+            <button
+                class="today-btn"
+                id="todayBtn"
+                type="button"
+            >
+                Hoy
+            </button>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             FILTROS DE TRABAJO
+        ================================================== -->
+
+        <section class="work-selector">
+
+            <button
+                class="work-btn active"
+                data-work="todos"
+                type="button"
+            >
+
+                <span>
+                    📅
+                </span>
+
+                Todos
+
+            </button>
+
+
+            <button
+                class="work-btn"
+                data-work="obra"
+                type="button"
+            >
+
+                <span>
+                    🏗️
+                </span>
+
+                Obra
+
+            </button>
+
+
+            <button
+                class="work-btn"
+                data-work="hotel"
+                type="button"
+            >
+
+                <span>
+                    🏨
+                </span>
+
+                Hotel
+
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESUMEN DEL MES
+        ================================================== -->
+
+        <section class="stats-section">
+
+            <div class="stats-header">
+
+                <span id="statsEyebrow">
+                    RESUMEN DEL MES
+                </span>
+
+                <h2 id="statsTitle">
+                    Todos tus turnos
+                </h2>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card total-stat">
+
+                    <span class="stat-icon">
+                        📅
+                    </span>
+
+                    <div>
+
+                        <strong id="totalDays">
+                            0
+                        </strong>
+
+                        <span>
+                            Días trabajados
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card hotel-stat">
+
+                    <span class="stat-icon">
+                        🏨
+                    </span>
+
+                    <div>
+
+                        <strong id="hotelDays">
+                            0
+                        </strong>
+
+                        <span>
+                            Días Hotel
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card obra-stat">
+
+                    <span class="stat-icon">
+                        🏗️
+                    </span>
+
+                    <div>
+
+                        <strong id="obraDays">
+                            0
+                        </strong>
+
+                        <span>
+                            Días Obra
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card hours-stat">
+
+                    <span class="stat-icon">
+                        ⏱️
+                    </span>
+
+                    <div>
+
+                        <strong id="totalHours">
+                            0
+                        </strong>
+
+                        <span>
+                            Horas laboradas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             QUINCENA
+        ================================================== -->
+
+        <section class="quincena-section">
+
+            <div class="quincena-header">
+
+                <div>
+
+                    <span>
+                        ORGANIZA TU QUINCENA
+                    </span>
+
+                    <h2 id="quincenaTitle">
+                        Primera quincena
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="programar-btn"
+                    id="programarQuincena"
+                    type="button"
+                >
+                    + Programar
+                </button>
+
+            </div>
+
+
+            <div class="quincena-selector">
+
+                <button
+                    class="quincena-btn active"
+                    id="firstQuincena"
+                    type="button"
+                >
+
+                    <strong>
+                        1–15
+                    </strong>
+
+                    <small id="firstQuincenaInfo">
+                        0 días · 0 h
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="quincena-btn"
+                    id="secondQuincena"
+                    type="button"
+                >
+
+                    <strong>
+                        16–fin
+                    </strong>
+
+                    <small id="secondQuincenaInfo">
+                        0 días · 0 h
+                    </small>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             HOY
+        ================================================== -->
+
+        <section class="today-card">
+
+            <div class="today-icon">
+                📍
+            </div>
+
+
+            <div class="today-info">
+
+                <span>
+                    HOY
+                </span>
+
+                <h2 id="todayDate">
+                    Cargando...
+                </h2>
+
+                <p id="todayShift">
+                    Consulta tus turnos en el calendario
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CALENDARIO
+        ================================================== -->
+
+        <section class="calendar-card">
+
+
+            <div class="calendar-header">
+
+                <button
+                    class="month-btn"
+                    id="prevMonth"
+                    type="button"
+                >
+                    ‹
+                </button>
+
+
+                <div class="month-title">
+
+                    <h2 id="monthTitle">
+                        Cargando...
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="month-btn"
+                    id="nextMonth"
+                    type="button"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+
+            <div class="weekdays">
+
+                <span>L</span>
+                <span>M</span>
+                <span>M</span>
+                <span>J</span>
+                <span>V</span>
+                <span>S</span>
+                <span>D</span>
+
+            </div>
+
+
+
+            <div
+                class="calendar"
+                id="calendar"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PRÓXIMO TURNO
+        ================================================== -->
+
+        <section class="next-shift">
+
+            <div class="section-title">
+
+                <span>
+                    PRÓXIMO TURNO
+                </span>
+
+                <h2>
+                    Tu siguiente jornada
+                </h2>
+
+            </div>
+
+
+            <div
+                class="next-shift-card"
+                id="nextShift"
+            >
+
+                <div class="next-icon">
+                    🕐
+                </div>
+
+                <div>
+
+                    <strong>
+                        No hay turnos registrados
+                    </strong>
+
+                    <p>
+                        Toca un día del calendario para agregar uno.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT PRINCIPAL
+    ================================================== -->
+
+    <script src="app.js"></script>
+
+
+
+    <!-- ==================================================
+         SERVICE WORKER / PWA
+    ================================================== -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register(
+                            "./service-worker.js"
+                        )
+
+                        .then(
+                            registration => {
+
+                                console.log(
+                                    "Mi Turno: PWA activa",
+                                    registration
+                                );
+
+                            }
+                        )
+
+                        .catch(
+                            error => {
+
+                                console.error(
+                                    "Error al activar PWA:",
+                                    error
+                                );
+
+                            }
+                        );
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
